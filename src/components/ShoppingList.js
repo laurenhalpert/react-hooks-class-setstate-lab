@@ -6,10 +6,11 @@ class ShoppingList extends React.Component {
     selectedCategory: "All"
   }
   handleCategoryChange = (event) => {
+    
     this.setState({selectedCategory: event.target.value})
   }
   getItemsToDisplay() {
-    return this.props.items.filter(item=>{this.state.selectedCategory === "All" || item.category === this.state.selectedCategory}).map(item=> <Item key={item.id} name={item.name} category={item.category} /> )
+    return (this.props.items.filter(item=>this.state.selectedCategory === "All" || item.category === this.state.selectedCategory).map(item=> <Item key={item.id} name={item.name} category={item.category} /> ))
   } 
   render() {
     return (
